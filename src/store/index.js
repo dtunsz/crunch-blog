@@ -59,15 +59,12 @@ const store = new Vuex.Store({
       await axios
         .get(link)
         .then((res) => {
-        //   commit("setPreviousPageData", this.state.currentPageData);
-        //   commit("setCurrentPageData", res.data);
             dataFetched = res.data
         })
         .catch((err) => {
           console.error(err);
           commit("setErrorMessage", err);
         });
-    //   let allPostsWithAuthor = this.getters.currentPageData.map((post) => {
       let allPostsWithAuthor = await Promise.all(
           dataFetched.map(async (post) => {
             await axios.get(post._links.authors[0].href)
@@ -78,9 +75,7 @@ const store = new Vuex.Store({
       );
       if (allPostsWithAuthor) {
           commit("setPreviousPageData", this.state.currentPageData);
-            //   commit("setCurrentPageData", res.data);
           commit("setCurrentPageData", allPostsWithAuthor);
-          console.log('a;; of us',allPostsWithAuthor)
       }
     },
 
