@@ -73,7 +73,7 @@ const store = new Vuex.Store({
         return post;
       })
       );
-      if (allPostsWithAuthor) {
+      if (allPostsWithAuthor.length) {
           commit("setPreviousPageData", this.state.currentPageData);
           commit("setCurrentPageData", allPostsWithAuthor);
       }
