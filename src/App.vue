@@ -23,6 +23,9 @@ export default {
   color: #2c3e50;
   padding-left: 10%;
   padding-right: 10%;
+  @media #{$mobile} {
+    overflow-x: hidden;
+  }
 }
 
 #nav {
@@ -35,5 +38,17 @@ export default {
 
 h1 {
   font-size: 1.3rem;
+}
+
+svg {
+  height: $sp-48;
+}
+
+.wp-caption {
+  width: inherit !important;
+
+  img {
+    max-width: 100%;
+  }
 }
 </style>

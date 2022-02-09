@@ -81,6 +81,17 @@ export default {
         this.setCurrentPage(page);
         this.fetchBlogPosts();
       }
+      this.scrollToTop();
+    },
+
+    scrollToTop() {
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+      }, 800);
     },
   },
 };
